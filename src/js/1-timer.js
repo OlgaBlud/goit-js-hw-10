@@ -1,5 +1,7 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const timeInput = document.querySelector('#datetime-picker');
 const startTimerBtn = document.querySelector('[data-start]');
@@ -22,7 +24,20 @@ const options = {
     // console.log(diffTime);
     if (selectedTime < currentTime) {
       startTimerBtn.disabled = true;
-      window.alert('Please choose a date in the future');
+      //   window.alert('Please choose a date in the future');
+      iziToast.error({
+        title: 'Error',
+        titleColor: '#fff',
+        titleSize: '16px',
+        titleLineHeight: '1.5',
+        message: 'Please choose a date in the future',
+        messageColor: '#fff',
+        messageSize: '16px',
+        messageLineHeight: '1.5',
+        backgroundColor: '#ef4040',
+        position: 'topRight',
+        iconUrl: '../img/error.svg',
+      });
     } else {
       userSelectedDate = selectedTime;
       startTimerBtn.classList.add('active-btn');
