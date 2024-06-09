@@ -18,13 +18,10 @@ const options = {
   onClose(selectedDates) {
     const selectedTime = selectedDates[0];
     const currentTime = Date.now();
-    // const diffTime = selectedTime - currentTime;
-    // console.log(currentTime);
-    // console.log(selectedTime);
-    // console.log(diffTime);
+
     if (selectedTime < currentTime) {
       startTimerBtn.disabled = true;
-      //   window.alert('Please choose a date in the future');
+
       iziToast.error({
         title: 'Error',
         titleColor: '#fff',
@@ -37,13 +34,12 @@ const options = {
         backgroundColor: '#ef4040',
         position: 'topRight',
         iconUrl: '../img/error.svg',
+        theme: 'dark',
       });
     } else {
       userSelectedDate = selectedTime;
       startTimerBtn.classList.add('active-btn');
       startTimerBtn.disabled = false;
-
-      //   console.log(userSelectedDate);
     }
   },
 };
@@ -52,13 +48,11 @@ flatpickr(timeInput, options);
 
 startTimerBtn.addEventListener('click', setTimerOnStartTimerBtn);
 function setTimerOnStartTimerBtn() {
-  //   console.log('click');
   startTimerBtn.classList.remove('active-btn');
   startTimerBtn.disabled = true;
   timeInput.disabled = true;
 
   const intervalId = setInterval(() => {
-    // console.log(userSelectedDate - Date.now());
     const leftDurationMs = userSelectedDate - Date.now();
     const leftTime = convertMs(leftDurationMs);
     const days = leftTime.days.toString().padStart(2, '0');
@@ -82,7 +76,7 @@ function setTimerOnStartTimerBtn() {
           <span class="value" data-seconds>${seconds}</span>
           <span class="label">Seconds</span>
         </div>`;
-    console.log(days, hours, minutes, seconds);
+    // console.log(days, hours, minutes, seconds);
   }, 1000);
 
   setTimeout(() => {
