@@ -12,7 +12,7 @@ function onNotificationBtnSubmit(event) {
   const delayMs = Number(formElem.delay.value);
   const stateValue = formElem.state.value;
 
-  if (delayMs < 0) {
+  if (delayMs <= 0) {
     iziToast.warning(getMessageObj('warning'));
     formElem.reset();
     return;
