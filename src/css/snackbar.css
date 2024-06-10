@@ -1,6 +1,4 @@
 .form {
-  /* display: flex;
-  flex-direction: column; */
   width: 360px;
 }
 .form > label {
@@ -41,9 +39,6 @@ fieldset {
   line-height: 1.5;
   letter-spacing: 0.04em;
   color: #2e2f42;
-  /* display: flex;
-  justify-content: space-between; */
-  /* padding: 24px 48px 8px 48px; */
   transition: border 250ms linear;
 }
 legend {
@@ -53,18 +48,11 @@ legend {
 input[name='state'] {
   width: 20px;
   height: 20px;
+  display: inline-block;
+  margin-left: 48px;
+  vertical-align: top;
 }
-/* fieldset > label {
-  display: flex;
-  flex-direction: row; 
-  
-}
-  */
 
-/* 
-  /* align-items: flex-start; */
-/* flex-direction: row; */
-/* margin-bottom: 8px; */
 button {
   border: none;
   border-radius: 8px;
@@ -83,8 +71,3 @@ button:hover,
 button:focus {
   background: #6c8cff;
 }
-/* ====================================================== */
-
-/* .form input[name='delay'] {
-  box-sizing: border-box;
-} */
